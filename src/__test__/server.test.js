@@ -7,9 +7,8 @@ const Puppy = require('../model/note');
 const apiUrl = 'http://localhost:3000/api/v1/puppy';
 
 const mockResource = {
-    title: 'test title',
-    content: 'test content',
-
+    name: 'test name',
+    breed: 'test breed',
 };
 
 beforeAll(() => server.start(3000));
@@ -20,8 +19,8 @@ describe('POST to /api/v1/puppy', () => {
         return superagent.post(apiUrl)
         .send(mockResource)
         .then((response) => {
-            expect(response.body.title).toEqual(mockResource.title);
-            expect(response.body.content).toEqual(mockResource.content);
+            expect(response.body.name).toEqual(mockResource.name);
+            expect(response.body.breed).toEqual(mockResource.breed);
             expect(response.body._id).toBeTruthy();
             expect(response.status).toEqual(200);
         })
@@ -60,8 +59,8 @@ describe('GET /api/v1/puppy', () => {
          return superagent.get(`${apiUrl}?id=${mockResourceForGet._id}`)
          .then((response) => {
             expect(response.status).toEqual(200);
-            expect(response.body.title).toEqual(mockResourceForGet.name);
-            expect(response.body.content).toEqual(mockResourceForGet.breed);
+            expect(response.body.name).toEqual(mockResourceForGet.name);
+            expect(response.body.breed).toEqual(mockResourceForGet.breed);
             expect(response.body.createdOn).toEqual(mockResourceForGet.createdOn.toISOString());
           })
           .catch((err) => {
