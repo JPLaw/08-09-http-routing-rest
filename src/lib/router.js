@@ -54,7 +54,7 @@ module.exports = class Router {
 
   route() {
     return (request, response) => {
-      Promise.all([bodyParser(request)]) 
+      Promise.all([bodyParser(request)]) //takes an array of promises and resolves them 
       // no need for a Promise.all, but just 
       // demo'ing another Promise method we can use, 
       // where Promise.all takes an aray of promises and resolves them

@@ -9,12 +9,15 @@ module.exports = (request) => {
     request.url = url.parse(request.url);
     request.url.query = queryString.parse(request.url.query);
 
+
+    // this line only hits for GET and DELETE
     if (!request.method.match(/POST|PUT|PATCH/)) {
       return resolve(request);
     }
 
     let message = '';
 
+    //accumulating checks of message
     request.on('data', (data) => {
       message += data.toString();
     });
@@ -31,6 +34,7 @@ module.exports = (request) => {
       }
     });
 
+    //error beyond our control (i.e. server error)
     request.on('error', reject);
     return undefined;
   });
