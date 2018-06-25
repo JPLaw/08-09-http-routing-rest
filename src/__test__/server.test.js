@@ -15,7 +15,7 @@ beforeAll(() => server.start(3000));
 afterAll(() => server.stop());
 
 describe('POST to /api/v1/puppy', () => {
-    test('200 for successful saving of a new puppy', () => {
+    it('should show 200 for successful saving of a new puppy', () => {
         return superagent.post(apiUrl)
         .send(mockResource)
         .then((response) => {
@@ -29,7 +29,7 @@ describe('POST to /api/v1/puppy', () => {
         });
     });
 
-    test('400 for a bad request', () => {
+    it('should show 400 for a bad request', () => {
         return superagent.post(apiUrl)
           .send({})
           .then((response) => {
@@ -55,7 +55,7 @@ describe('GET /api/v1/puppy', () => {
          });
      });
 
-     test('200 successful GET request', () => {
+     it('should show 200 successful GET request', () => {
          return superagent.get(`${apiUrl}?id=${mockResourceForGet._id}`)
          .then((response) => {
             expect(response.status).toEqual(200);
@@ -67,4 +67,26 @@ describe('GET /api/v1/puppy', () => {
             throw err;
           });
       });
-});
+}); 
+
+describe('DELETE /api/puppy/?id', () => {
+    it('should have status 204 and succesfully delete the item', (done) => {
+      superagent.delete(`${apiURL}?id=${mockResourceForGet._id}`)
+      .then((res) => {
+        expect(res.status).to.equal(204);
+        done();
+      })
+      .catch((done));
+    });
+  });
+
+  describe('DELETE /api/notes/?id with bad ID', () => {
+    it('should have status 404', (done) => {
+      superagent.delete(`${apiURL}?id=12345`)
+      .then(done)
+      .catch((err) => {
+      expect(err.status).to.equal(404);
+      done();
+      });
+    });
+  });
