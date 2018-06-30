@@ -1,6 +1,6 @@
 'use strict';
 
-const Note = require('../model/puppy');
+const Puppy = require('../model/puppy');
 const logger = require('../lib/logger');
 const customResponse = require('../lib/response');
 
@@ -13,9 +13,9 @@ module.exports = (router) => {
         customResponse.sendJSON(response, 200, note);
         return undefined;
       })
-      .catch((err) => {
+      .catch((error) => {
         logger.log(logger.INFO, `ROUTE PUPPY: There was a bad request ${JSON.stringify(err.message)}`);
-        customResponse.sendError(response, 400, err.message);
+        customResponse.sendError(response, 400, error.message);
         return undefined;
       });
   });
@@ -31,10 +31,28 @@ module.exports = (router) => {
       .then((puppy) => {
         customResponse.sendJSON(response, 200, puppy);
       })
-      .catch((err) => {
-        console.log(err);
-        customResponse.sendError(response, 404, err.message);
+      .catch((error) => {
+        console.log(error);
+        customResponse.sendError(response, 404, error.message);
       });
+    return undefined;
+  });
+
+  router.delete('/api/v1/puppy', (request, response) => {
+    if (!request.url.query.id) {
+      customResponse.sendError(response, 404, 'Your request requires an ID');
+      return undefined;
+    }
+    Puppy.delete(request.url.query.id)
+    .then((puppy) => {
+      customResponse.sendJSON(reponse, 200, {
+        result: `${puppy.name} has been deleted`
+      })
+    })
+    .catch((error) => {
+      console.log(error);
+      customResponse.sendError(response, 404, error.message);
+    });
     return undefined;
   });
 };

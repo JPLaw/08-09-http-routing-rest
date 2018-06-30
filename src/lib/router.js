@@ -8,11 +8,7 @@ const customResponse = require('./response');
 module.exports = class Router {
   constructor() {
     this.routes = {
-      GET: {
-      // Just a hard-coded example
-      // '/api/v1/note': (req, res) => {},
-      // '/api/v1/note?id': (req, res) => {},
-      },
+      GET: {},
       POST: {},
       PUT: {},
       DELETE: {},
@@ -67,13 +63,11 @@ module.exports = class Router {
           const requestResponseCallback = this.routes[request.method][request.url.pathname];
           const isFunction = typeof requestResponseCallback === 'function';
           if (isFunction) return requestResponseCallback(request, response);
-          
           customResponse.sendError(response, 404, 'Route Not Registered');
           return undefined;
         })
-        .catch((err) => {
-          logger.log(logger.INFO, JSON.stringify(err));
-          // This might be better as a 400 perhaps
+        .catch((error) => {
+          logger.log(logger.INFO, JSON.stringify(error));
           customResponse.sendError(response, 404, 'Route Not Found');
           return undefined;
         });

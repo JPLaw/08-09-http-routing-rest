@@ -1,3 +1,5 @@
+'use strict';
+
 const url = require('url');
 const queryString = require('querystring');
 
@@ -19,7 +21,7 @@ module.exports = (request) => {
 
     //accumulating checks of message
     request.on('data', (data) => {
-      debug(`Chunked request data: ${data.toString()}`);
+      // debug(`Chunked request data: ${data.toString()}`);
       message += data.toString();
     });
 
@@ -29,17 +31,16 @@ module.exports = (request) => {
       // possible errors: passing in ' ', usually results in a SyntaxError
       try {
         request.body = JSON.parse(message);
-        debug(`Completed request body: ${request.body}`);
+        // debug(`Completed request body: ${request.body}`);
         return resolve(request);
-      } catch (err) {
-        console.log(err);
-        return reject(err);
+      } catch (error) {
+        return reject(error);
       }
     });
 
     //error beyond our control (i.e. server error)
     request.on('error', reject);
-    debug(`Error occured on parsing request body: ${err}`);
-    return reject(err);
+    // debug(`Error occured on parsing request body: ${err}`);
+    return undefined;
   });
 };
