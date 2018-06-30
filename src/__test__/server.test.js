@@ -2,7 +2,7 @@
 
 const superagent = require('superagent');
 const server = require('../lib/server');
-const Puppy = require('../model/note');
+const Puppy = require('../model/puppy');
 
 const apiUrl = 'http://localhost:3000/api/v1/puppy';
 
@@ -11,7 +11,7 @@ const mockResource = {
     breed: 'test breed',
 };
 
-beforeAll(() => server.start(3000));
+beforeAll(() => server.start(5000));
 afterAll(() => server.stop());
 
 describe('POST to /api/v1/puppy', () => {
@@ -67,26 +67,35 @@ describe('GET /api/v1/puppy', () => {
             throw err;
           });
       });
-}); 
+      
+      it('show show 404 bad GET request', () => {
+        return superagent.get(`${apiUrl}`)
+          .then((response) => {
+            throw error;
+          })
+          .catch((error) => {
+            expect(error.status).toEqual(404);
+          });
+      });
+    });
 
 describe('DELETE /api/puppy/?id', () => {
-    it('should have status 204 and succesfully delete the item', (done) => {
+    it('should have status 200 and succesfully delete the item', (done) => {
       superagent.delete(`${apiURL}?id=${mockResourceForGet._id}`)
-      .then((res) => {
-        expect(res.status).to.equal(204);
+      .then((response) => {
+        expect(response.status).to.equal(200);
         done();
       })
       .catch((done));
     });
-  });
 
-  describe('DELETE /api/notes/?id with bad ID', () => {
-    it('should have status 404', (done) => {
-      superagent.delete(`${apiURL}?id=12345`)
-      .then(done)
-      .catch((err) => {
-      expect(err.status).to.equal(404);
-      done();
+    it('should show 404 for bad DELETE request', () => {
+        return superagent.delete(`${apiUrl}`)
+          .then((response) => {
+            throw err;
+          })
+          .catch((err) => {
+            expect(err.status).toEqual(404);
+          });
       });
-    });
-  });
+});
