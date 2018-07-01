@@ -14,7 +14,7 @@ module.exports = (router) => {
         return undefined;
       })
       .catch((error) => {
-        logger.log(logger.INFO, `ROUTE PUPPY: There was a bad request ${JSON.stringify(err.message)}`);
+        logger.log(logger.INFO, `ROUTE PUPPY: There was a bad request ${JSON.stringify(error.message)}`);
         customResponse.sendError(response, 400, error.message);
         return undefined;
       });
@@ -44,15 +44,15 @@ module.exports = (router) => {
       return undefined;
     }
     Puppy.delete(request.url.query.id)
-    .then((puppy) => {
-      customResponse.sendJSON(reponse, 200, {
-        result: `${puppy.name} has been deleted`
+      .then((puppy) => {
+        customResponse.sendJSON(response, 200, {
+          result: `${puppy.name} has been deleted`,
+        });
       })
-    })
-    .catch((error) => {
-      console.log(error);
-      customResponse.sendError(response, 404, error.message);
-    });
+      .catch((error) => {
+        console.log(error);
+        customResponse.sendError(response, 404, error.message);
+      });
     return undefined;
   });
 };
