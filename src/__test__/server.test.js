@@ -11,7 +11,7 @@ const mockResource = {
     breed: 'test breed',
 };
 
-beforeAll(() => server.start(5000));
+beforeAll(() => server.start(3000));
 afterAll(() => server.stop());
 
 describe('POST to /api/v1/puppy', () => {
@@ -24,8 +24,8 @@ describe('POST to /api/v1/puppy', () => {
             expect(response.body._id).toBeTruthy();
             expect(response.status).toEqual(200);
         })
-        .catch((err) => {
-            throw err;
+        .catch((error) => {
+            throw error;
         });
     });
 
@@ -35,9 +35,9 @@ describe('POST to /api/v1/puppy', () => {
           .then((response) => {
             throw response;
           })
-          .catch((err) => {
-            expect(err.status).toEqual(400);
-            expect(err).toBeInstanceOf(Error);
+          .catch((error) => {
+            expect(error.status).toEqual(400);
+            expect(error).toBeInstanceOf(Error);
           });
     });
 });
@@ -50,10 +50,10 @@ describe('GET /api/v1/puppy', () => {
          .then((puppy) => {
              mockResourceForGet = puppy;
          })
-         .catch((err) => {
-             throw err;
-         });
-     });
+         .catch((error) => {
+             throw error;
+         })
+     })
 
      it('should show 200 successful GET request', () => {
          return superagent.get(`${apiUrl}?id=${mockResourceForGet._id}`)
@@ -63,10 +63,10 @@ describe('GET /api/v1/puppy', () => {
             expect(response.body.breed).toEqual(mockResourceForGet.breed);
             expect(response.body.createdOn).toEqual(mockResourceForGet.createdOn.toISOString());
           })
-          .catch((err) => {
-            throw err;
-          });
-      });
+          .catch((error) => {
+            throw error;
+          })
+      })
       
       it('show show 404 bad GET request', () => {
         return superagent.get(`${apiUrl}`)
@@ -79,7 +79,19 @@ describe('GET /api/v1/puppy', () => {
       });
     });
 
-describe('DELETE /api/puppy/?id', () => {
+describe('DELETE /api/v1/puppy', () => {
+  let mockResourceForGet;
+  beforeEach((done) => {
+    const newPuppy = new Puppy(mockResource);
+    newPuppy.save()
+      .then((puppy) => {
+        mockResourceForGet = puppy;
+        done();
+      }) 
+      .catch((err) => {
+        throw err;
+      });
+  });
     it('should have status 200 and succesfully delete the item', (done) => {
       superagent.delete(`${apiURL}?id=${mockResourceForGet._id}`)
       .then((response) => {

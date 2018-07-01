@@ -3,7 +3,7 @@
 const http = require('http');
 
 const server = module.exports = {};
-const Router = require('./router');
+const Router = require('../router');
 
 const router = new Router();
 require('../route/puppy-router')(router);
