@@ -95,7 +95,7 @@ describe('GET /api/v1/puppy', () => {
     });
   
     it('should have status 200 and succesfully delete the item', (done) => {
-      superagent.delete(`${apiURL}?id=${mockResourceForGet._id}`)
+      superagent.delete(`${apiUrl}?id=${mockResourceForGet._id}`)
         .then((response) => {
           expect(response.status).toEqual(200);
           done();

@@ -8,7 +8,7 @@ module.exports = class Puppy {
     this._id = uuid();
     this.createdOn = new Date();
     this.name = config.name;
-    this.breed = config.breed || '';
+    this.breed = config.breed;
   }
 
   save() {

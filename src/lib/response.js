@@ -2,16 +2,16 @@
 
 const response = module.exports = {};
 
-response.sendJSON = (response, status, data) => {
-  response.writeHead(status, { 'Content-Type': 'application/json' });
-  response.write(JSON.stringify(data));
-  response.end();
+response.sendJSON = (res, status, data) => {
+  res.writeHead(status, { 'Content-Type': 'application/json' });
+  res.write(JSON.stringify(data));
+  res.end();
   return undefined;
 };
 
-response.sendError = (response, status, msg) => {
-  response.writeHead(status, { 'Content-Type': 'text/plain' });
-  response.write(msg);
-  response.end();
+response.sendError = (res, status, msg) => {
+  res.writeHead(status, { 'Content-Type': 'text/plain' });
+  res.write(msg);
+  res.end();
   return undefined;
 };
