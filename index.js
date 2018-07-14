@@ -1,23 +1,10 @@
-// 'use strict';
-
-// require('dotenv').config();
-
-// const server = require('../lib/server');
-
-
-// server.start(3000, () => console.log('Listening on 3000'));
-// server.start(process.env.PORT, () => console.log(`Listening on ${process.env.PORT}`));
-
 'use strict';
 
 require('dotenv').config();
 
-if (!process.env.NODE_ENV) {
-  throw new Error('Undefined NODE_ENV');
-}
+const server = require('./src/main');
 
-if (process.env.NODE_ENV !== 'production') {
-  require('babel-register');
-}
 
-require('./src/main');
+server.start(3000, () => console.log('Listening on 3000'));
+server.start(process.env.PORT, () => console.log(`Listening on ${process.env.PORT}`));
+

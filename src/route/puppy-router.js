@@ -33,7 +33,6 @@ module.exports = (router) => {
         customResponse.sendJSON(response, 200, puppy);
       })
       .catch((error) => {
-        console.log(error);
         customResponse.sendError(response, 404, error.message);
       });
     return undefined;
@@ -51,7 +50,6 @@ module.exports = (router) => {
         customResponse.sendJSON(response, 204, puppyId);
       })
       .catch((error) => {
-        console.log(error);
         customResponse.sendError(response, 404, error.message);
       });
     return undefined;

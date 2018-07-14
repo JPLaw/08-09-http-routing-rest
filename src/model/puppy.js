@@ -1,6 +1,6 @@
 'use strict';
 
-const uuid = require('uuid/v1');
+const uuid = require('uuid/v4');
 const storage = require('../lib/storage');
 
 module.exports = class Puppy {

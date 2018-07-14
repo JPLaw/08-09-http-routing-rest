@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1530719020486" clover="3.2.0">
-  <project timestamp="1530719020486" name="All files">
-    <metrics statements="124" coveredstatements="79" conditionals="26" coveredconditionals="11" methods="35" coveredmethods="21" elements="185" coveredelements="111" complexity="0" loc="124" ncloc="124" packages="3" files="8" classes="8">
+<coverage generated="1531590600683" clover="3.2.0">
+  <project timestamp="1531590600683" name="All files">
+    <metrics statements="124" coveredstatements="113" conditionals="24" coveredconditionals="19" methods="35" coveredmethods="32" elements="183" coveredelements="164" complexity="0" loc="124" ncloc="124" packages="3" files="8" classes="8">
       <package name="lib">
-        <metrics statements="83" coveredstatements="58" conditionals="20" coveredconditionals="9" methods="21" coveredmethods="16"/>
+        <metrics statements="83" coveredstatements="75" conditionals="20" coveredconditionals="16" methods="21" coveredmethods="19"/>
         <file name="body-parser.js" path="/Users/jenniferlawrence/codefellows/401/labs/08-09-http-routing-rest/src/lib/body-parser.js">
-          <metrics statements="19" coveredstatements="17" conditionals="6" coveredconditionals="4" methods="4" coveredmethods="4"/>
+          <metrics statements="19" coveredstatements="18" conditionals="6" coveredconditionals="5" methods="4" coveredmethods="4"/>
           <line num="3" count="1" type="stmt"/>
           <line num="4" count="1" type="stmt"/>
           <line num="7" count="1" type="stmt"/>
-          <line num="8" count="2" type="stmt"/>
-          <line num="9" count="2" type="cond" truecount="3" falsecount="1"/>
-          <line num="11" count="2" type="stmt"/>
-          <line num="12" count="2" type="stmt"/>
-          <line num="16" count="2" type="cond" truecount="1" falsecount="1"/>
-          <line num="17" count="0" type="stmt"/>
+          <line num="8" count="6" type="stmt"/>
+          <line num="9" count="6" type="cond" truecount="3" falsecount="1"/>
+          <line num="11" count="6" type="stmt"/>
+          <line num="12" count="6" type="stmt"/>
+          <line num="14" count="6" type="cond" truecount="2" falsecount="0"/>
+          <line num="15" count="4" type="stmt"/>
+          <line num="18" count="2" type="stmt"/>
           <line num="20" count="2" type="stmt"/>
-          <line num="23" count="2" type="stmt"/>
-          <line num="25" count="2" type="stmt"/>
+          <line num="21" count="2" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
           <line num="28" count="2" type="stmt"/>
-          <line num="32" count="2" type="stmt"/>
-          <line num="33" count="2" type="stmt"/>
-          <line num="35" count="2" type="stmt"/>
-          <line num="37" count="0" type="stmt"/>
-          <line num="42" count="2" type="stmt"/>
-          <line num="44" count="2" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+          <line num="30" count="2" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="36" count="2" type="stmt"/>
+          <line num="37" count="2" type="stmt"/>
         </file>
         <file name="logger.js" path="/Users/jenniferlawrence/codefellows/401/labs/08-09-http-routing-rest/src/lib/logger.js">
           <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -34,18 +34,18 @@
           <line num="15" count="1" type="stmt"/>
         </file>
         <file name="response.js" path="/Users/jenniferlawrence/codefellows/401/labs/08-09-http-routing-rest/src/lib/response.js">
-          <metrics statements="11" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+          <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
           <line num="3" count="1" type="stmt"/>
           <line num="5" count="1" type="stmt"/>
-          <line num="6" count="0" type="stmt"/>
-          <line num="7" count="0" type="stmt"/>
-          <line num="8" count="0" type="stmt"/>
-          <line num="9" count="0" type="stmt"/>
+          <line num="6" count="3" type="stmt"/>
+          <line num="7" count="3" type="stmt"/>
+          <line num="8" count="3" type="stmt"/>
+          <line num="9" count="3" type="stmt"/>
           <line num="12" count="1" type="stmt"/>
-          <line num="13" count="2" type="stmt"/>
-          <line num="14" count="2" type="stmt"/>
-          <line num="15" count="2" type="stmt"/>
-          <line num="16" count="2" type="stmt"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="14" count="3" type="stmt"/>
+          <line num="15" count="3" type="stmt"/>
+          <line num="16" count="3" type="stmt"/>
         </file>
         <file name="router.js" path="/Users/jenniferlawrence/codefellows/401/labs/08-09-http-routing-rest/src/lib/router.js">
           <metrics statements="19" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="9" coveredmethods="7"/>
@@ -54,20 +54,20 @@
           <line num="5" count="1" type="stmt"/>
           <line num="8" count="1" type="stmt"/>
           <line num="10" count="1" type="stmt"/>
-          <line num="37" count="1" type="stmt"/>
-          <line num="41" count="1" type="stmt"/>
-          <line num="45" count="0" type="stmt"/>
-          <line num="48" count="1" type="stmt"/>
-          <line num="52" count="1" type="stmt"/>
-          <line num="53" count="2" type="stmt"/>
-          <line num="63" count="2" type="stmt"/>
-          <line num="64" count="2" type="stmt"/>
-          <line num="65" count="2" type="cond" truecount="1" falsecount="1"/>
-          <line num="66" count="0" type="stmt"/>
-          <line num="67" count="0" type="stmt"/>
-          <line num="70" count="0" type="stmt"/>
-          <line num="71" count="0" type="stmt"/>
-          <line num="72" count="0" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
+          <line num="34" count="1" type="stmt"/>
+          <line num="35" count="6" type="stmt"/>
+          <line num="38" count="6" type="stmt"/>
+          <line num="39" count="6" type="stmt"/>
+          <line num="40" count="6" type="cond" truecount="1" falsecount="1"/>
+          <line num="42" count="0" type="stmt"/>
+          <line num="43" count="0" type="stmt"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+          <line num="48" count="0" type="stmt"/>
         </file>
         <file name="server.js" path="/Users/jenniferlawrence/codefellows/401/labs/08-09-http-routing-rest/src/lib/server.js">
           <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -81,51 +81,51 @@
           <line num="14" count="1" type="stmt"/>
         </file>
         <file name="storage.js" path="/Users/jenniferlawrence/codefellows/401/labs/08-09-http-routing-rest/src/lib/storage.js">
-          <metrics statements="22" coveredstatements="9" conditionals="12" coveredconditionals="4" methods="4" coveredmethods="2"/>
+          <metrics statements="22" coveredstatements="21" conditionals="12" coveredconditionals="10" methods="4" coveredmethods="4"/>
           <line num="3" count="1" type="stmt"/>
           <line num="5" count="1" type="stmt"/>
           <line num="6" count="1" type="stmt"/>
           <line num="11" count="1" type="stmt"/>
           <line num="12" count="8" type="stmt"/>
           <line num="13" count="8" type="cond" truecount="1" falsecount="1"/>
-          <line num="14" count="8" type="cond" truecount="3" falsecount="1"/>
-          <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="16" count="0" type="stmt"/>
-          <line num="17" count="0" type="stmt"/>
-          <line num="18" count="0" type="stmt"/>
+          <line num="14" count="8" type="cond" truecount="4" falsecount="0"/>
+          <line num="15" count="7" type="cond" truecount="2" falsecount="0"/>
+          <line num="16" count="7" type="stmt"/>
+          <line num="17" count="7" type="stmt"/>
+          <line num="18" count="7" type="stmt"/>
           <line num="24" count="1" type="stmt"/>
-          <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="26" count="0" type="stmt"/>
-          <line num="27" count="0" type="stmt"/>
+          <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
           <line num="29" count="0" type="stmt"/>
           <line num="32" count="1" type="stmt"/>
-          <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="34" count="0" type="stmt"/>
-          <line num="35" count="0" type="stmt"/>
-          <line num="36" count="0" type="stmt"/>
-          <line num="38" count="0" type="stmt"/>
+          <line num="33" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="34" count="1" type="stmt"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
         </file>
       </package>
       <package name="model">
-        <metrics statements="10" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="2"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <file name="puppy.js" path="/Users/jenniferlawrence/codefellows/401/labs/08-09-http-routing-rest/src/model/puppy.js">
-          <metrics statements="10" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="2"/>
+          <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
           <line num="3" count="1" type="stmt"/>
           <line num="4" count="1" type="stmt"/>
           <line num="6" count="1" type="stmt"/>
           <line num="8" count="8" type="stmt"/>
           <line num="9" count="8" type="stmt"/>
           <line num="10" count="8" type="stmt"/>
-          <line num="11" count="8" type="cond" truecount="2" falsecount="0"/>
+          <line num="11" count="8" type="stmt"/>
           <line num="15" count="8" type="stmt"/>
-          <line num="19" count="0" type="stmt"/>
-          <line num="23" count="0" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="23" count="2" type="stmt"/>
         </file>
       </package>
       <package name="route">
-        <metrics statements="31" coveredstatements="13" conditionals="4" coveredconditionals="0" methods="10" coveredmethods="3"/>
+        <metrics statements="31" coveredstatements="28" conditionals="4" coveredconditionals="3" methods="10" coveredmethods="9"/>
         <file name="puppy-router.js" path="/Users/jenniferlawrence/codefellows/401/labs/08-09-http-routing-rest/src/route/puppy-router.js">
-          <metrics statements="31" coveredstatements="13" conditionals="4" coveredconditionals="0" methods="10" coveredmethods="3"/>
+          <metrics statements="31" coveredstatements="28" conditionals="4" coveredconditionals="3" methods="10" coveredmethods="9"/>
           <line num="3" count="1" type="stmt"/>
           <line num="4" count="1" type="stmt"/>
           <line num="5" count="1" type="stmt"/>
@@ -134,29 +134,29 @@
           <line num="9" count="2" type="stmt"/>
           <line num="10" count="2" type="stmt"/>
           <line num="11" count="2" type="stmt"/>
-          <line num="13" count="0" type="stmt"/>
-          <line num="14" count="0" type="stmt"/>
-          <line num="17" count="2" type="stmt"/>
-          <line num="18" count="2" type="stmt"/>
-          <line num="19" count="2" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="18" count="1" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
           <line num="24" count="1" type="stmt"/>
-          <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="26" count="0" type="stmt"/>
-          <line num="27" count="0" type="stmt"/>
-          <line num="30" count="0" type="stmt"/>
-          <line num="32" count="0" type="stmt"/>
-          <line num="35" count="0" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="26" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="33" count="1" type="stmt"/>
           <line num="36" count="0" type="stmt"/>
-          <line num="38" count="0" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
           <line num="41" count="1" type="stmt"/>
-          <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="43" count="0" type="stmt"/>
+          <line num="42" count="2" type="stmt"/>
+          <line num="43" count="2" type="cond" truecount="1" falsecount="1"/>
           <line num="44" count="0" type="stmt"/>
-          <line num="46" count="0" type="stmt"/>
-          <line num="48" count="0" type="stmt"/>
-          <line num="53" count="0" type="stmt"/>
-          <line num="54" count="0" type="stmt"/>
-          <line num="56" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="48" count="2" type="stmt"/>
+          <line num="50" count="1" type="stmt"/>
+          <line num="53" count="1" type="stmt"/>
+          <line num="55" count="2" type="stmt"/>
         </file>
       </package>
     </metrics>
