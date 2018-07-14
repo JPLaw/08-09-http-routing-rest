@@ -21,7 +21,6 @@ describe('POST to /api/v1/puppy', () => {
     return superagent.post(apiUrl)
       .send(mockResource)
       .then((response) => {
-        console.log(response, 'REPONSE HERE!!!!!!!!!!!!!!');
         expect(response.body.name).toEqual(mockResource.name);
         expect(response.body.breed).toEqual(mockResource.breed);
         expect(response.body._id).toBeTruthy();
@@ -85,12 +84,11 @@ describe('GET /api/v1/puppy', () => {
 
   describe('DELETE /api/v1/puppy', () => {
     let mockResourceForDelete;
-    beforeEach((done) => {
+    beforeEach(() => {
       const newPuppy = new Puppy(mockResource);
       newPuppy.save()
         .then((puppy) => {
           mockResourceForDelete = puppy;
-          done();
         }) 
         .catch((error) => {
           throw error;
