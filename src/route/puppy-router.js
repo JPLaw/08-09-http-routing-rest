@@ -1,6 +1,6 @@
 'use strict';
 
-const Note = require('../model/puppy');
+const Puppy = require('../model/puppy');
 const logger = require('../lib/logger');
 const customResponse = require('../lib/response');
 
@@ -9,19 +9,20 @@ module.exports = (router) => {
     logger.log(logger.INFO, 'ROUTE-PUPPY: POST /api/v1/puppy');
     const newPuppy = new Puppy(request.body);
     newPuppy.save()
-      .then((note) => {
-        customResponse.sendJSON(response, 200, note);
+      .then((puppy) => {
+        customResponse.sendJSON(response, 200, puppy);
         return undefined;
       })
-      .catch((err) => {
-        logger.log(logger.INFO, `ROUTE PUPPY: There was a bad request ${JSON.stringify(err.message)}`);
-        customResponse.sendError(response, 400, err.message);
+      .catch((error) => {
+        logger.log(logger.INFO, `ROUTE PUPPY: There was a bad request ${JSON.stringify(error.message)}`);
+        customResponse.sendError(response, 400, error.message);
         return undefined;
       });
   });
 
   
   router.get('/api/v1/puppy', (request, response) => {
+    logger.log(logger.INFO, 'ROUTE-PUPPY: GET /api/v1/puppy');
     if (!request.url.query.id) {
       customResponse.sendError(response, 404, 'Your request requires an id');
       return undefined;
@@ -31,9 +32,25 @@ module.exports = (router) => {
       .then((puppy) => {
         customResponse.sendJSON(response, 200, puppy);
       })
-      .catch((err) => {
-        console.log(err);
-        customResponse.sendError(response, 404, err.message);
+      .catch((error) => {
+        customResponse.sendError(response, 404, error.message);
+      });
+    return undefined;
+  });
+
+  router.delete('/api/v1/puppy', (request, response) => {
+    logger.log(logger.INFO, 'ROUTE-PUPPY: DELETE /api/v1/puppy');
+    if (!request.url.query.id) {
+      customResponse.sendError(response, 404, 'Your request requires an ID');
+      return undefined;
+    }
+    
+    Puppy.delete(request.url.query.id)
+      .then((puppyId) => {
+        customResponse.sendJSON(response, 204, puppyId);
+      })
+      .catch((error) => {
+        customResponse.sendError(response, 404, error.message);
       });
     return undefined;
   });

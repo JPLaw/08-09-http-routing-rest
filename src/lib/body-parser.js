@@ -1,3 +1,5 @@
+'use strict';
+
 const url = require('url');
 const queryString = require('querystring');
 
@@ -26,8 +28,8 @@ module.exports = (request) => {
       try {
         request.body = JSON.parse(message);
         return resolve(request);
-      } catch (err) {
-        return reject(err);
+      } catch (error) {
+        return reject(error);
       }
     });
 
