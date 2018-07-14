@@ -1,7 +1,7 @@
 'use strict';
 
 const uuid = require('uuid/v4');
-const storage = require('../lib/storage');
+const storage = require('../lib/storage/main');
 
 module.exports = class Puppy {
   constructor(config) {

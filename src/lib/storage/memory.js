@@ -1,13 +1,10 @@
 'use strict';
 
-const logger = require('./logger');
+const logger = require('../logger');
 
 const storage = module.exports = {};
 const memory = {};
 
-// schema is the type of resource, in this case note
-// and it will just be a 'string' saying this is a note schema
-// item is an actual object we'll pass in to post a newly created not
 storage.save = (schema, item) => {
   return new Promise((resolve, reject) => {
     if (!schema) return reject(new Error('Cannot create a new item, schema required'));
@@ -18,9 +15,7 @@ storage.save = (schema, item) => {
     return resolve(item);
   });
 };
-// This uses a straight "Promise.resolve"
-// When you do this, you don't have to do the whole promise wiring.
-// Rather, JS just returns a promise and immediately resolves/rejects it for you
+
 storage.get = (schema, _id) => {
   if (memory[schema][_id]) {
     logger.log(logger.INFO, `STORAGE: fetching ${JSON.stringify(memory[schema][_id], null, 2)}`);
@@ -30,10 +25,17 @@ storage.get = (schema, _id) => {
 };
 
 storage.delete = (schema, _id) => {
-  if (memory[schema][_id]) {
-    const del = memory[schema][_id];
-    delete memory[schema][_id];
-    return Promise.resolve(del);
-  }
-  return Promise.reject(new Error(`Schema ${schema} and/or ID ${_id} not found`));
+  return new Promise((resolve, reject) => {
+    if (!schema) return reject(new Error('Cannot delete item. Schema required'));
+    if (!_id) return reject(new Error('Cannot delete item. Id required'));
+
+    if (!memory[schema][_id]) return reject(new Error('Unable to delete. No item with that Id exists.'));
+    
+    if (memory[schema][_id]) {
+      logger.log(logger.INFO, `STORAGE: deleting ${JSON.stringify(memory[schema][_id])}`);
+      delete memory[schema][_id];
+      return resolve(_id);
+    }
+    return undefined;
+  });
 };
